@@ -7,6 +7,7 @@ import { HEROES } from '../hero-mocks';
   templateUrl: './heroes.component.html',
   styleUrls: ['./heroes.component.scss']
 })
+
 export class HeroesComponent implements OnInit {
 
   heroes = HEROES;

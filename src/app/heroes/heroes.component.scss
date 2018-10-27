@@ -1,0 +1,18 @@
+
+li {
+
+	&:hover {
+		background-color: #eee;
+	}
+
+	&.selected {
+
+		background-color: #ccc;
+
+		&:hover {
+			background-color: lighten(#ccc, 15%);
+		}
+
+	}
+
+}

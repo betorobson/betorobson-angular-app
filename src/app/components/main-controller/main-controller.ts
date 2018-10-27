@@ -1,14 +1,17 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'main-controller',
+  templateUrl: './main-controller.html',
+  styleUrls: ['./main-controller.scss']
 })
 
-export class AppComponent {
+export class MainControllerComponent {
+
   title = 'betorobson-angular-app';
+
   changeTitle = function() {
     this.title = 'blah';
   };
+
 }

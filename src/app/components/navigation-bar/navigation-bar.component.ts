@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationBarComponent implements OnInit {
 
+  title = 'betorobson-angular-app';
+
   constructor() { }
 
   ngOnInit() {
   }
+
+  changeTitle = function() {
+    this.title = 'blah';
+  };
 
 }

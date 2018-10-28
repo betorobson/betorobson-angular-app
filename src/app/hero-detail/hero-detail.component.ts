@@ -45,6 +45,7 @@ export class HeroDetailComponent implements OnInit {
           }
         },
         (err) => {
+          console.log(err.headers.get('pragma'));
           console.log(err);
         }
       );

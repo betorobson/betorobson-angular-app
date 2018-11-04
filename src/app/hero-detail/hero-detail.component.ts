@@ -33,6 +33,11 @@ export class HeroDetailComponent implements OnInit {
 
   getHero() {
 
+    const j = {
+      a: 1,
+      b: 2
+    };
+
     const id = +this.route.snapshot.paramMap.get('id');
 
     this.heroService.getHero(id)
@@ -45,8 +50,12 @@ export class HeroDetailComponent implements OnInit {
           }
         },
         (err) => {
-          console.log(err.headers.get('pragma'));
-          console.log(err);
+
+          console.log(
+            '[header] pragma: ',
+            err.headers.get('pragma')
+          );
+
         }
       );
 

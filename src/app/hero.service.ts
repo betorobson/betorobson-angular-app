@@ -78,11 +78,11 @@ export class HeroService {
 
     return this.http.get<Hero>(url)
       .pipe(
-        catchError(err => {
-          console.log(err.headers.keys());
-          throw err;
-        })
-        // catchError(this.httpErrorHandler('getCustomers', []))
+        // catchError(err => {
+        //   console.log(err.headers.keys());
+        //   throw err;
+        // })
+        catchError(this.httpErrorHandler('getCustomers', []))
         // catchError(err => {
         //   return throwError(err);
         // })

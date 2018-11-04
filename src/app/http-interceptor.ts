@@ -44,6 +44,8 @@ export class NoopInterceptor implements HttpInterceptor {
       .pipe(
         catchError( (error: any, caught: Observable<HttpEvent<any>>) => {
 
+          console.error(error);
+
           error.friendlyMessage = {
             title: 'blah'
           };

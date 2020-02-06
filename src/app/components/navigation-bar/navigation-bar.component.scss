@@ -1,0 +1,11 @@
+@import "../../mixinx.scss";
+
+:host {
+	display: block;
+	background: #ccc;
+
+	@include media-pointer-mouse() {
+		border: 10px solid red;
+	}
+
+}

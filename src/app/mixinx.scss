@@ -1,0 +1,13 @@
+// not touchscreen, desktop mouse
+@mixin media-pointer-mouse(){
+	@media (hover: hover) and (pointer: fine) {
+		@content;
+	}
+}
+
+// touchscreen, mobile and tablet
+@mixin media-pointer-touch(){
+	@media (hover: none) and (pointer: coarse) {
+		@content;
+	}
+}

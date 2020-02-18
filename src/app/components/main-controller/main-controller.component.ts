@@ -33,6 +33,38 @@ export class MainControllerComponent {
     custom: 'blah'
   };
 
+  ngOnChanges(){
+    console.log('ngOnChanges');
+  }
+
+  ngOnInit(){
+    console.log('ngOnInit');
+  }
+
+  ngDoCheck(){
+    console.log('ngDoCheck');
+  }
+
+  ngAfterContentInit(){
+    console.log('ngAfterContentInit');
+  }
+
+  ngAfterContentChecked(){
+    console.log('ngAfterContentChecked');
+  }
+
+  ngAfterViewInit(){
+    console.log('ngAfterViewInit');
+  }
+
+  ngAfterViewChecked(){
+    console.log('ngAfterViewChecked');
+  }
+
+  ngOnDestroy(){
+    console.log('ngOnDestroy');
+  }
+
   onSubmit (){
     console.log(this.form.valid);
 

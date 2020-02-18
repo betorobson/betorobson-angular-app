@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { AppRoutingModule } from '../app-routing.module';
+
 import { MainControllerComponent } from './main-controller/main-controller.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 
@@ -10,7 +12,8 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
     NavigationBarComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    AppRoutingModule
   ],
   exports: [
     NavigationBarComponent,

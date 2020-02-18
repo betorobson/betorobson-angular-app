@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, FormControl } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +19,10 @@ import { FormlyModule } from '@ngx-formly/core';
 import { FormlyFieldCustomInput } from './components/custom-input/custom-input';
 
 // import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
+
+function hasNoop(control: FormControl): boolean {
+  return !/noop/.test(control.value);
+}
 
 @NgModule({
   declarations: [
@@ -39,7 +43,16 @@ import { FormlyFieldCustomInput } from './components/custom-input/custom-input';
     ReactiveFormsModule,
     FormlyModule.forRoot({
       types: [
-        { name: 'custom', component: FormlyFieldCustomInput }
+        {
+          name: 'custom',
+          // extends: 'input',
+          component: FormlyFieldCustomInput,
+          defaultOptions: {
+            validators: {
+              hasNoop: hasNoop
+            }
+          }
+        }
       ]
     })
   ],

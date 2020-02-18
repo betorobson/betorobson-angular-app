@@ -2,6 +2,10 @@ import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import {FormlyFieldConfig} from '@ngx-formly/core';
 
+interface FormlyFieldConfig2 extends FormlyFieldConfig {
+  blah?: string
+}
+
 @Component({
   selector: 'main-controller',
   templateUrl: './main-controller.component.html',
@@ -14,7 +18,7 @@ export class MainControllerComponent {
   model: any = {
     custom: 'blah'
   };
-  fields: FormlyFieldConfig[] = [
+  fields: FormlyFieldConfig2[] = [
     // {
     //   key: 'email',
     //   type: 'input',
@@ -25,6 +29,7 @@ export class MainControllerComponent {
     //   }
     // }
     {
+      blah: 'nada',
       key: 'custom',
       type: 'custom',
       templateOptions: {

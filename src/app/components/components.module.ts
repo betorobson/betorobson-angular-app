@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule, Routes } from '@angular/router';
 
-import { AppRoutingModule } from '../app-routing.module';
+// import { AppRoutingModule } from '../app-routing.module';
 
-import { MainControllerComponent } from './main-controller/main-controller.component';
+// import { MainControllerComponent } from './main-controller/main-controller.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 
 @NgModule({
@@ -13,13 +14,14 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
   ],
   imports: [
     CommonModule,
-    AppRoutingModule
+    RouterModule.forChild([])
   ],
   exports: [
     NavigationBarComponent,
+    RouterModule
     // MainControllerComponent
   ]
 })
 
 export class ComponentsModule { }
-export { MainControllerComponent };
+// export { MainControllerComponent };

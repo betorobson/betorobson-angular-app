@@ -8,10 +8,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpInterceptorApp, NoopInterceptor } from './http-interceptor';
 
 import { ComponentsModule } from './components/components.module';
-import { MainControllerComponent } from './components/components.module';
 
-// import { MainControllerComponent } from './components/main-controller/main-controller.component';
-import { HeroesComponent } from './heroes/heroes.component';
+import { MainControllerComponent } from './components/main-controller/main-controller.component';
+// import { HeroesComponent } from './heroes/heroes.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
@@ -25,15 +24,6 @@ function hasNoop(control: FormControl): boolean {
 }
 
 @NgModule({
-  declarations: [
-    MainControllerComponent,
-    HeroesComponent,
-    HeroDetailComponent,
-    MessagesComponent,
-    DashboardComponent,
-    FormlyFieldCustomInput
-    // NavigationBarComponent
-  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -55,6 +45,15 @@ function hasNoop(control: FormControl): boolean {
         }
       ]
     })
+  ],
+  declarations: [
+    MainControllerComponent,
+    // HeroesComponent,
+    HeroDetailComponent,
+    MessagesComponent,
+    DashboardComponent,
+    FormlyFieldCustomInput
+    // NavigationBarComponent
   ],
   providers: [
     {

@@ -65,7 +65,7 @@ export class MainControllerComponent {
     console.log('ngOnDestroy');
   }
 
-  onSubmit (){
+  onSubmit (model: any){
     console.log(this.form.valid);
 
     return;

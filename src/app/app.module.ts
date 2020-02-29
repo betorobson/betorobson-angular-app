@@ -19,7 +19,7 @@ import { FormlyFieldCustomInput } from './components/custom-input/custom-input';
 
 // import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 
-function hasNoop(control: FormControl): boolean {
+export function hasNoop(control: FormControl): boolean {
   return !/noop/.test(control.value);
 }
 

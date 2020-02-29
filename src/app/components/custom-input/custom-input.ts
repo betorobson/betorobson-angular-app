@@ -5,7 +5,7 @@ import { FieldType } from '@ngx-formly/core';
   selector: 'formly-field-custom-input',
   template: `
 		<div>
-    	<input [type]="type" [formControl]="formControl" [formlyAttributes]="field">
+    	<input type="input" [formControl]="formControl" [formlyAttributes]="field">
 			<button type="button" (click)="clickbtn('A')">A</button>
 			<button type="button" (click)="clickbtn('B')">B</button>
 		</div>

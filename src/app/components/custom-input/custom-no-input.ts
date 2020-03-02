@@ -2,17 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { FieldType } from '@ngx-formly/core';
 
 @Component({
-  selector: 'formly-field-custom-input',
+  selector: 'formly-field-custom-no-input',
   template: `
 		<div>
-    	<input [type]="type" [formControl]="formControl" [formlyAttributes]="field">
 			<button type="button" (click)="clickbtn('A')">A</button>
 			<button type="button" (click)="clickbtn('B')">B</button>
 		</div>
   `,
 })
 
-export class FormlyFieldCustomInput extends FieldType implements OnInit {
+export class FormlyFieldCustomNoInput extends FieldType implements OnInit {
 
 	constructor () {
 		super();

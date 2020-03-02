@@ -26,7 +26,8 @@ export class MainControllerComponent {
     'name': new FormControl('', [
       Validators.minLength(5),
       forbiddenNameValidator(/bob/i)
-    ])
+    ]),
+    'name2': new FormControl('')
   });
 
   model: any = {
@@ -88,6 +89,14 @@ export class MainControllerComponent {
       templateOptions: {
         required: true,
         label: 'Custom inlined',
+      }
+    },
+    {
+      key: 'custom-no-input',
+      type: 'custom-no-input',
+      templateOptions: {
+        required: true,
+        label: 'Custom no inputut',
       }
     }
   ];

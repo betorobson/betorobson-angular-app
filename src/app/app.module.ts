@@ -16,6 +16,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyFieldCustomInput } from './components/custom-input/custom-input';
+import { FormlyFieldCustomNoInput } from './components/custom-input/custom-no-input';
 
 // import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 
@@ -42,6 +43,16 @@ export function hasNoop(control: FormControl): boolean {
               hasNoop: hasNoop
             }
           }
+        },
+        {
+          name: 'custom-no-input',
+          // extends: 'input',
+          component: FormlyFieldCustomNoInput,
+          defaultOptions: {
+            validators: {
+              hasNoop: hasNoop
+            }
+          }
         }
       ]
     })
@@ -52,7 +63,8 @@ export function hasNoop(control: FormControl): boolean {
     HeroDetailComponent,
     MessagesComponent,
     DashboardComponent,
-    FormlyFieldCustomInput
+    FormlyFieldCustomInput,
+    FormlyFieldCustomNoInput
     // NavigationBarComponent
   ],
   providers: [

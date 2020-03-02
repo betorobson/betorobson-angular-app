@@ -18,6 +18,10 @@ export class FormlyFieldCustomInput extends FieldType implements OnInit {
 		super();
 	}
 
+  get type() {
+    return this.to.type || 'text';
+  }
+
 	ngOnInit () {
 		console.log(this.formControl.value);
 	};

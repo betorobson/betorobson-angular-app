@@ -17,11 +17,9 @@
           "builder": "@angular-builders/custom-webpack:browser",
           "options": {
             "customWebpackConfig": {
-              "path": "./webpack.extended.config.js",
-              "replaceDuplicatePlugins": true,
+              "path": "./webpack.extend.config.js",
               "mergeStrategies": {
-                "externals": "replace",
-                "module.rules": "append"
+                "externals": "replace"
               }
             },
             "outputPath": "dist/betorobson-angular-app",

@@ -22,6 +22,8 @@ function forbiddenNameValidator(nameRe: RegExp): ValidatorFn {
 
 export class MainControllerComponent {
 
+  reportsState: boolean = true;
+
   form = new FormGroup({
     'name': new FormControl('', [
       Validators.minLength(5),
@@ -70,6 +72,10 @@ export class MainControllerComponent {
     console.log(this.form.valid);
 
     return;
+  };
+
+  showReports (show: boolean){
+    this.reportsState = show;
   };
 
   fields: FormlyFieldConfig2[] = [

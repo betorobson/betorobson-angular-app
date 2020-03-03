@@ -6,11 +6,13 @@ import { RouterModule, Routes } from '@angular/router';
 
 // import { MainControllerComponent } from './main-controller/main-controller.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
+import { ReportsComponent } from './reports/reports.component';
 
 @NgModule({
   declarations: [
     // MainControllerComponent,
-    NavigationBarComponent
+    NavigationBarComponent,
+    ReportsComponent
   ],
   imports: [
     CommonModule,
@@ -18,6 +20,7 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
   ],
   exports: [
     NavigationBarComponent,
+    ReportsComponent,
     RouterModule
     // MainControllerComponent
   ]

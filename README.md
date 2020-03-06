@@ -25,3 +25,39 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+```json
+// mondogb aggregation
+[
+  {
+    '$lookup': {
+      'from': 'albums',
+      'localField': '_id',
+      'foreignField': 'singer_id',
+      'as': 'albums'
+    }
+  }, {
+    '$unwind': {
+      'path': '$albums',
+      'preserveNullAndEmptyArrays': false
+    }
+  }, {
+    '$lookup': {
+      'from': 'comments',
+      'localField': 'albums._id',
+      'foreignField': 'album_id',
+      'as': 'albums.comment'
+    }
+  }, {
+    '$group': {
+      '_id': '$_id',
+      'name': {
+        '$first': '$name'
+      },
+      'albums': {
+        '$push': '$albums'
+      }
+    }
+  }
+]
+```

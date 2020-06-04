@@ -14,6 +14,11 @@ function forbiddenNameValidator(nameRe: RegExp): ValidatorFn {
   };
 }
 
+const defaultInputValidator = (control: FormControl): boolean => {
+  console.log('defaultInputValidator', control);
+  return !/noop/.test(control.value);
+}
+
 @Component({
   selector: 'main-controller',
   templateUrl: './main-controller.component.html',
@@ -79,15 +84,16 @@ export class MainControllerComponent {
   };
 
   fields: FormlyFieldConfig2[] = [
-    // {
-    //   key: 'email',
-    //   type: 'input',
-    //   templateOptions: {
-    //     label: 'Email address',
-    //     placeholder: 'Enter email',
-    //     required: true,
-    //   }
-    // }
+    {
+      key: 'defaultInputWithValidator',
+      type: 'input',
+      templateOptions: {
+        label: 'input default with validator',
+      },
+      validators: {
+        defaultInputValidator: defaultInputValidator
+      }
+    },
     {
       blah: 'nada',
       key: 'custom',

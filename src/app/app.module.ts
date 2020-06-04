@@ -21,6 +21,7 @@ import { FormlyFieldCustomNoInput } from './components/custom-input/custom-no-in
 // import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 
 export function hasNoop(control: FormControl): boolean {
+  console.log('custom input with validator', control);
   return !/noop/.test(control.value);
 }
 
@@ -34,6 +35,11 @@ export function hasNoop(control: FormControl): boolean {
     ReactiveFormsModule,
     FormlyModule.forRoot({
       types: [
+        {
+          name: 'input',
+          // extends: 'input',
+          component: FormlyFieldCustomInput
+        },
         {
           name: 'custom',
           // extends: 'input',

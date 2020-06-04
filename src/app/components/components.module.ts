@@ -8,6 +8,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { ReportsComponent } from './reports/reports.component';
 
+import { FormlyModule } from '@ngx-formly/core';
+import { FormlyFieldCustomInput } from './custom-input/custom-input';
+import { FormControl } from '@angular/forms';
+
+export function defaultInputValidator(control: FormControl): boolean {
+  console.log('defaultInputValidator: ', control);
+  return !/noop/.test(control.value);
+}
+
 @NgModule({
   declarations: [
     // MainControllerComponent,
@@ -16,7 +25,20 @@ import { ReportsComponent } from './reports/reports.component';
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild([])
+    RouterModule.forChild([]),
+    FormlyModule.forRoot({
+      types: [
+        {
+          name: 'inputFromComponents',
+          component: FormlyFieldCustomInput,
+          defaultOptions: {
+            validators: {
+              defaultInputValidator
+            }
+          }
+        }
+      ]
+    })
   ],
   exports: [
     NavigationBarComponent,

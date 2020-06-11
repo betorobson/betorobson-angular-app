@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER, Injectable } from '@angular/core';
 
 import { FormsModule, ReactiveFormsModule, FormControl } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -24,6 +24,43 @@ export function hasNoop(control: FormControl): boolean {
   console.log('custom input with validator', control);
   return !/noop/.test(control.value);
 }
+
+@Injectable()
+export class AppInitService {
+
+  constructor() {
+  }
+
+  Init() {
+
+    return new Promise<void>((resolve, reject) => {
+      console.log('AppInitService.init() called');
+      console.log('Wait for 2 seconds please');
+      setTimeout(() => {
+          console.log('AppInitService Finished');
+          resolve();
+      }, 2000);
+    });
+
+  }
+
+}
+
+export function initializeApp1(
+  appInitService: AppInitService
+) {
+  return (): Promise<any> => {
+    return appInitService.Init();
+    // return new Promise<void>((resolve, reject) => {
+    //   console.log('AppInitService.init() called');
+    //   setTimeout(() => {
+    //       console.log('AppInitService Finished');
+    //       resolve();
+    //   }, 6000);
+    // });
+  };
+}
+
 
 @NgModule({
   imports: [
@@ -74,6 +111,7 @@ export function hasNoop(control: FormControl): boolean {
     // NavigationBarComponent
   ],
   providers: [
+    AppInitService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpInterceptorApp,
@@ -83,7 +121,13 @@ export function hasNoop(control: FormControl): boolean {
       provide: HTTP_INTERCEPTORS,
       useClass: NoopInterceptor,
       multi: true
-    }
+    },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeApp1,
+      deps: [AppInitService],
+      multi: true
+    },
   ],
   bootstrap: [MainControllerComponent]
 })
